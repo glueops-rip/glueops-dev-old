@@ -50,12 +50,12 @@ const callouts: Callout[] = [
     icon: ShareIcon,
   },
   {
-    title: "Efficient Kubernetes Cluster Management",
+    title: "Kubernetes Cluster Management",
     text: "Leverage GlueOps to manage Kubernetes clusters for deploying application, optimizing workload for production and non-production environments.",
     icon: UsersIcon,
   },
   {
-    title: "Comprehensive Monitoring and Logging",
+    title: "Monitoring and Logging",
     text: "Gain insights with automated log collection, powerful metrics, and customizable alerts, allowing proactive monitoring and issue resolution.",
     icon: CubeTransparentIcon,
   },
