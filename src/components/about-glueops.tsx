@@ -31,7 +31,7 @@ const callouts: Callout[] = [
   },
   {
     title: "Central Orchestration Point",
-    text: "GlueOps Platform serves as the central orchestration point, monitoring repository activity and updating deployments and infrastructure accordingly.",
+    text: "GlueOps Platform serves as the central orchestration point, monitoring repository activity and updating deployments and infrastructure.",
     icon: RectangleStackIcon,
   },
   {
@@ -51,7 +51,7 @@ const callouts: Callout[] = [
   },
   {
     title: "Efficient Kubernetes Cluster Management",
-    text: "Leverage GlueOps to manage Kubernetes clusters for deploying applications and services, optimizing workload separation for production and non-production environments.",
+    text: "Leverage GlueOps to manage Kubernetes clusters for deploying application, optimizing workload for production and non-production environments.",
     icon: UsersIcon,
   },
   {
@@ -61,7 +61,7 @@ const callouts: Callout[] = [
   },
   {
     title: "Scalable Infrastructure Deployment",
-    text: "Deploy applications and infrastructure at scale, with GlueOps supporting an arbitrary number of Kubernetes clusters to accommodate your growing needs.",
+    text: "Deploy applications and infrastructure at scale, with GlueOps supporting Kubernetes clusters to accommodate your growing needs.",
     icon: RectangleGroupIcon,
   },
 ];
