@@ -1,58 +1,51 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require("prism-react-renderer/themes/github");
+const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
-
-  // Set the production url of your site here
-  url: 'https://your-docusaurus-test-site.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
-
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
-
+  title: "Glueops",
+  tagline: "Dataops and Devops platform",
+  url: "https://glueops.dev/",
+  baseUrl: "/",
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
+  favicon: "images/glueops.png",
+  organizationName: "Glueops",
+  projectName: "website",
+  deploymentBranch: "master",
+  trailingSlash: false,
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
+
+  plugins: [],
 
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
+          sidebarPath: require.resolve("./sidebars.js"),
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: "https://github.com/GlueOps/glueops-dev",
+          sidebarCollapsed: false,
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: [require.resolve("./src/css/custom.css"), require.resolve("./src/css/helpers.css")],
+        },
+        sitemap: {
+          changefreq: "weekly",
+          priority: 0.5,
+          ignorePatterns: ["/tags/**"],
+          filename: "sitemap.xml",
         },
       }),
     ],
@@ -61,73 +54,120 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+
+      colorMode: {
+        defaultMode: "light",
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+      },
+      docs: {
+        sidebar: {
+          hideable: true,
+          autoCollapseCategories: true,
+        },
+      },
+      metadata: [
+        { name: "keywords", content: "devops, dataops, gitops, workflow, glueops," },
+        {
+          name: "description",
+          content:
+            "GlueOps simplifies and optimizes your business’s DevOps and DataOps operations, allowing for efficient management and operation.",
+        },
+        { name: "og:image", content: "https://glueops.dev/images/glueops.png" },
+      ],
       navbar: {
-        title: 'My Site',
+        title: "Glueops",
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: "Glueops Logo",
+          src: "images/glueops.png",
+          srcDark: "images/glueops.png",
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Tutorial',
+            type: "doc",
+            docId: "introduction",
+            position: "left",
+            label: "Docs",
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
-            position: 'right',
+            type: "doc",
+            docId: "getting-started",
+            position: "left",
+            label: "Get Started",
+          },
+      
+          // },
+          // {
+          //   href: "https://nx.dev",
+          //   className: "header-nxdev-link",
+          //   "aria-label": "Nx documentation",
+          //   position: "right",
+          //   title: "Check Nx",
+          //   label: "Nx",
+          // },
+          // {
+          //   href: "https://nx.app",
+          //   className: "header-nxdev-link",
+          //   "aria-label": "Nx Cloud",
+          //   position: "right",
+          //   title: "Check Nx Cloud",
+          //   label: "Nx Cloud",
+          // },
+          // {
+          //   href: "https://nrwl.io",
+          //   className: "header-nrwlio-link",
+          //   "aria-label": "Nrwl consulting",
+          //   position: "right",
+          //   title: "Check Nrwl",
+          //   label: "Nrwl",
+          // },
+          {
+            href: "https://github.com/GlueOps/glueops-dev",
+            className: "header-github-link",
+            "aria-label": "GitHub repository",
+            position: "right",
+            title: "Glueops on Github",
           },
         ],
+        hideOnScroll: true,
       },
       footer: {
-        style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: "Address",
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                html: `
+                    <p>
+                    GlueOps, LLC<br>
+                    35 N Franklin Ave<br>
+                    Ste 687 2062<br>
+                    Pinedale, WY 82941
+                    </p>
+                  `,
               },
             ],
           },
           {
-            title: 'Community',
+            title: "Resources",
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: "Docs",
+                to: "#",
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                label: "Purchase DataOps through the Amazon Marketplace",
+                to: "https://aws.amazon.com/marketplace/pp/prodview-mfwjl2qdvhaes?sr=0-1&ref_=beagle&applicationId=AWSMPContessa",
               },
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                label: "Purchase DevOps through the Amazon Marketplace",
+                to: "https://aws.amazon.com/marketplace/pp/prodview-soaz2d3nlms6k?sr=0-2&ref_=beagle&applicationId=AWSMPContessa",
               },
             ],
           },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
-            ],
-          },
+          
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Released under the MIT License. <br /> &copy; ${new Date().getFullYear()} Copyright Nx.`,
       },
       prism: {
         theme: lightCodeTheme,
