@@ -33,8 +33,7 @@ export default function HeroGlueops(): JSX.Element {
                 className={styles.illustration__container}
                 style={{ backgroundImage: 'url("/images/background/glueops.png")' }}
               >
-              
-                
+                <img src="/images/background/glueops.png"></img>
               </div>
             </div>
           </div>
