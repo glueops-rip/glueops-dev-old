@@ -2,6 +2,7 @@ import { ChevronRightIcon, DocumentDuplicateIcon } from "@heroicons/react/24/out
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import React, { useEffect, useState } from "react";
 import clsx from "clsx";
+
 import styles from "./hero-glueops.module.css";
 
 
@@ -31,10 +32,8 @@ export default function HeroGlueops(): JSX.Element {
             <div className={styles.illustration}>
               <div
                 className={styles.illustration__container}
-                style={{ backgroundImage: 'url("/images/background/glueops.png")' }}
+                style={{ backgroundImage: 'url("/images/vector.svg")', width: "100%", height: "100%"}}
               >
-              
-                
               </div>
             </div>
           </div>

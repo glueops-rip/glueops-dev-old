@@ -16,7 +16,7 @@ export default function HeroUpgrade(): JSX.Element {
     <section className="padding-vert--xl">
       <div className="container">
         <div className="row">
-          <div className="col col--7 margin-vert--xl">
+          <div className="col col--7--xl">
             <h1 className={styles.slogan}>
               <span>
                 <span className={styles.slogan__highlight}>Upgrade</span> your
@@ -29,7 +29,7 @@ export default function HeroUpgrade(): JSX.Element {
             <div className={styles.reaching_out__link_container}>
                   <a href="hello@glueops.dev" target="_blank">
                     <svg
-                      style={{ height: "1rem", width: "1rem" }}
+                      style={{ height: "2rem", width: "2rem" }}
                       fill="currentColor"
                       role="img"
                       viewBox="0 0 8 6"
@@ -43,7 +43,7 @@ export default function HeroUpgrade(): JSX.Element {
                   </a>
                   <a href="#" target="_blank">
                     <svg
-                      style={{ height: "1rem", width: "1rem" }}
+                      style={{ height: "2rem", width: "2rem" }}
                       fill="currentColor"
                       role="img"
                       viewBox="0 0 24 24"
@@ -57,7 +57,7 @@ export default function HeroUpgrade(): JSX.Element {
                   </a>
                   <a href="https://github.com/GlueOps/glueops-dev" target="_blank">
                     <svg
-                      style={{ height: "1rem", width: "1rem" }}
+                      style={{ height: "2rem", width: "2rem" }}
                       fill="currentColor"
                       role="img"
                       viewBox="0 0 24 24"
