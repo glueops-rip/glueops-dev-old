@@ -69,8 +69,8 @@ Replace `<downloaded-keyfile>` with the actual name of the downloaded key file.
 For macbook users run `cat <downloaded-keyfile>.pem | base64`
 :::
 
-### Add Glueops Display logo
-To add the logo to your your GitHub App This way when our bot comments it'll use the image  follow these steps:
+### Add Display logo
+Adding logo to your GitHub app ensures that when our bot comments it'll use the image for easy identification. To add the logo:
 
 - Save and download the GlueOps logo image
 <img width="395" alt="Screenshot 2023-07-19 at 14 32 25" src="https://github.com/GlueOps/glueops-dev/assets/39309699/60278215-1711-4d0e-9d0e-fe674cdd58fd"/>
