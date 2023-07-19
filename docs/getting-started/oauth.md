@@ -18,7 +18,7 @@ Before you begin, make sure you have the following information:
 
 Now, let's proceed with creating the OAuth application:
 
-1. Go to the GitHub settings page for your management organization by visiting the following URL: [https://github.com/organizations/glueops-rocks/settings/applications](https://github.com/organizations/glueops-rocks/settings/applications).
+1. Go to the GitHub settings page for your management organization.
 
 2. Click on **New Org OAuth App** to create a new OAuth application.
 
@@ -46,12 +46,8 @@ After registering the app, click on **Generate a new client secret** to generate
 
 ## Retrieving values
 
-The **Client ID** and **Client Secret** is what we need for the deployment of the `terraform-module-cloud-multy-prerequisites` module. 
+The **Client ID** and **Client Secret** will be used in the deployment of the [terraform-module-cloud-multy-prerequisites](https://github.com/GlueOps/terraform-module-cloud-multy-prerequisites) module
 
 - [github_oauth_app_client_id](#create-the-oauth-app-id)
 - [github_oauth_app_client_secret](#generate-client-secret)
-
-:::info
-These two keys will be required when creating your cluster
-:::
 

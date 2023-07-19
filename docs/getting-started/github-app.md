@@ -110,4 +110,4 @@ By completing these steps, the following values should be obtained from the GitH
 - [github_tenant_app_b64enc_private_key](#generate-the-private-key)
 - [github_tenant_app_installation_id](#get-installation-id)
 
-The values gotten from the steps above is used for the `terraform-module-cloud-multy-prerequisites` module.
+The values gotten from the steps above will be used in the deployment of the [terraform-module-cloud-multy-prerequisites](https://github.com/GlueOps/terraform-module-cloud-multy-prerequisites) module.
