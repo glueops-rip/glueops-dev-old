@@ -4,26 +4,15 @@ title: Create the GitHub OAuth App
 type: tutorial
 ---
 
-In order to authenticate services deployed on the GlueOps Platform, you need to register GitHub OAuth app. This OAuth app will be installed in the organization that manages the GlueOps platform (likely owned by GlueOps) rather than the tenant's organization.
-
-Before you begin, make sure you have the following information:
-
-- Management GitHub Organization: The name of the GitHub organization that manages the GlueOps platform.
-
-- Tenant Organization: The GitHub organization of the tenant.
-
-- Captain Domain: The captain domain is provided by the GlueOps platform for tenant applications.
+In order to authenticate services deployed on the GlueOps Platform, you need to register GitHub OAuth app. This OAuth app will be installed in the Tenant's GitHub Organization.
 
 ## Create the OAuth App ID
 
-Now, let's proceed with creating the OAuth application:
-
-1. Go to the GitHub settings page for your management organization.
+1. On your Github organization page, go to the Developers settings and click on Oauth Apps.
 
 2. Click on **New Org OAuth App** to create a new OAuth application.
 
 <img width="647" alt="new-oauth" src="https://github.com/GlueOps/glueops-dev/assets/39309699/3e18c227-61ef-48f7-a592-08818e3407f3"/>
-
 
 3. Provide the following details for the OAuth app:
 
