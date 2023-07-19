@@ -104,10 +104,10 @@ If your GitHub rganization is "glueops-rocks," the URL would be `https://github.
 
 ## Retrieving values
 
-After completing the steps to create your GitHub App, the following values should be saved and stored securly as it will be used for integration with the GlueOps Platform:
+By completing the above steps, you should have obtained the following values from the GitHub App:
 
 - [github_tenant_app_id](#create-the-github-app-id)
 - [github_tenant_app_b64enc_private_key](#generate-the-private-key)
 - [github_tenant_app_installation_id](#get-installation-id)
 
-The values gotten from the steps above will be used in the deployment of the [terraform-module-cloud-multy-prerequisites](https://github.com/GlueOps/terraform-module-cloud-multy-prerequisites) module.
+These values will be used when deploying the [terraform-module-cloud-multy-prerequisites](https://github.com/GlueOps/terraform-module-cloud-multy-prerequisites) module.

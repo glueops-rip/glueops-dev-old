@@ -42,10 +42,10 @@ Once the client secret is generated, make sure to copy and securely store it.
 
 ## Retrieving values
 
-After completing the steps to create your GitHub OAuth app, you will need to retrieve the following values for integration with the GlueOps Platform:
+By completing the above steps, you should have obtained the following values from the GitHub App:
 
 - [github_oauth_app_client_id](#create-the-oauth-app-id): This is the Client ID of your GitHub OAuth app.
 - [github_oauth_app_client_secret](#generate-client-secret): This is the Client Secret generated for your GitHub OAuth app.
 
-These values will be used during the deployment of the[terraform-module-cloud-multy-prerequisites](https://github.com/GlueOps/terraform-module-cloud-multy-prerequisites) module.
+These values will be used when deploying the [terraform-module-cloud-multy-prerequisites](https://github.com/GlueOps/terraform-module-cloud-multy-prerequisites) module.
 
