@@ -29,8 +29,7 @@ const sidebars = {
       link: {
         type: "generated-index",
         title: "Get Started",
-
-        slug: "/features",
+        slug: "/get-started",
       },
     },
   ],
