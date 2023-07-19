@@ -32,7 +32,7 @@ Once your app is registered you'll receive your **OAuth App Client ID**
 
 ## Generate Client Secret
 
-The client secret is a confidential value that is used for secure communication between your OAuth app and GitHub. To generate this:
+The client secret is a confidential value that is used for secure communication. To generate this:
 
 In the OAuth app settings page, scroll down to the Client Secrets section and click on **Generate a new client secret**.
 
