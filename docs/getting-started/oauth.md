@@ -42,7 +42,7 @@ Once the client secret is generated, make sure to copy and securely store it.
 
 ## Retrieving values
 
-By completing the above steps, you should have obtained the following values from the GitHub App:
+By completing the above steps, you should have obtained the following values from the GitHub OAuth App:
 
 - [github_oauth_app_client_id](#create-the-oauth-app-id): This is the Client ID of your GitHub OAuth app.
 - [github_oauth_app_client_secret](#generate-client-secret): This is the Client Secret generated for your GitHub OAuth app.
