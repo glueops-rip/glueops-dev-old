@@ -28,7 +28,7 @@ To create the OAuth App, follow these steps:
 
 <img width="500" alt="Screenshot 2023-07-19 at 15 04 33" src="https://github.com/GlueOps/glueops-dev/assets/39309699/a1053a22-7271-450a-8387-d1dc906cfc3f"/>
 
-Once your app is registed you'll receive your **OAuth App Client ID**
+Once your app is registered you'll receive your **OAuth App Client ID**
 
 ## Generate Client Secret
 
