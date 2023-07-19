@@ -4,7 +4,7 @@ title: Create the GitHub OAuth App
 type: tutorial
 ---
 
-Glueops authenticate services deployed on the Platform using the GitHub OAuth app. The OAuth app will be installed in your GitHub Organization to provide secure access and authentication for your applications.
+Glueops authenticate services deployed on the Platform using the GitHub OAuth app. The GitHub app is installed within your GitHub Organization to provide secure access for your applications.
 
 ## Create the OAuth App ID
 
