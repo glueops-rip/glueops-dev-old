@@ -70,7 +70,7 @@ For macbook users run `cat <downloaded-keyfile>.pem | base64`
 :::
 
 ### Add Display logo
-Adding logo to your GitHub app ensures that when our bot comments it'll use the image for easy identification. To add the logo:
+Adding logo to your GitHub App ensures that when our bot comments it'll use the image for easy identification. To add the logo:
 
 - Save and download the GlueOps logo image
 <img width="395" alt="Screenshot 2023-07-19 at 14 32 25" src="https://github.com/GlueOps/glueops-dev/assets/39309699/60278215-1711-4d0e-9d0e-fe674cdd58fd"/>
