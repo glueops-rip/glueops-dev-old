@@ -99,8 +99,9 @@ To complete the GitHub App setup, you need to install the GitHub App in your org
 <img width="665" alt="Screenshot 2023-07-19 at 14 54 43" src="https://github.com/GlueOps/glueops-dev/assets/39309699/0416c340-2f9f-4045-92cf-c70b51a914ee"/>. 
 
 
-::: note
+:::info
 If your GitHub organization is "glueops-rocks," the URL would be `https://github.com/organizations/glueops-rocks/settings/installations/12345678`, and the GitHub App Installation ID would be `12345678`.
+:::
 
 ## Retrieving values
 
