@@ -1,10 +1,12 @@
 ---
-id: oauth
-title: Create the GitHub OAuth App
+id: github-oauth
+title: Create GitHub OAuth App
 type: tutorial
 ---
 
-To authenticate services deployed on the GlueOps Platform, you need to create a GitHub OAuth app. This OAuth app will be installed in your GitHub Organization, providing secure access and authentication for your applications.
+# Creating your GitHub OAuth App
+
+Glueops authenticate services deployed on the Platform using the GitHub OAuth app. The OAuth app is installed within your GitHub Organization to provide secure access for your applications.
 
 ## Create the OAuth App ID
 
@@ -28,11 +30,11 @@ To create the OAuth App, follow these steps:
 
 <img width="500" alt="Screenshot 2023-07-19 at 15 04 33" src="https://github.com/GlueOps/glueops-dev/assets/39309699/a1053a22-7271-450a-8387-d1dc906cfc3f"/>
 
-Once your app is registed you'll receive your **OAuth App Client ID**
+Once your app is registered you'll receive your **OAuth App Client ID**
 
 ## Generate Client Secret
 
-The client secret is a confidential value that is used for secure communication between your OAuth app and GitHub. To generate this:
+The client secret is a confidential value that is used for secure communication. To generate this:
 
 In the OAuth app settings page, scroll down to the Client Secrets section and click on **Generate a new client secret**.
 
@@ -42,7 +44,7 @@ Once the client secret is generated, make sure to copy and securely store it.
 
 ## Retrieving values
 
-By completing the above steps, you should have obtained the following values from the GitHub App:
+By completing the above steps, you should have obtained the following values from the GitHub OAuth App:
 
 - [github_oauth_app_client_id](#create-the-oauth-app-id): This is the Client ID of your GitHub OAuth app.
 - [github_oauth_app_client_secret](#generate-client-secret): This is the Client Secret generated for your GitHub OAuth app.

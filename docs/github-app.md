@@ -1,8 +1,10 @@
 ---
 id: github-app
-title: Create the GitHub App
+title: Create GitHub App
 type: tutorial
 ---
+
+# Creating your GitHub App
 
 The GlueOps Platform utilizes a GitHub App to access your GitHub Organizations to provide the following services:
 
@@ -45,7 +47,6 @@ To create the GitHub App, follow these steps:
 
 <img width="563" alt="Screenshot 2023-07-19 at 15 24 01" src="https://github.com/GlueOps/glueops-dev/assets/39309699/8c0cf32e-3e2f-41d7-b810-bf9bc719e6dd"/>
 
-
 4. After creating the GitHub App, you will be provided with an **App ID**. 
 
 <img width="563" alt="Screenshot 2023-07-19 at 15 24 01" src="https://github.com/GlueOps/glueops-dev/assets/39309699/108a533b-69de-4ff9-a266-96354d6728ed"/>
@@ -69,8 +70,8 @@ Replace `<downloaded-keyfile>` with the actual name of the downloaded key file.
 For macbook users run `cat <downloaded-keyfile>.pem | base64`
 :::
 
-### Add Glueops Display logo
-To add the logo to your your GitHub App This way when our bot comments it'll use the image  follow these steps:
+### Add Display logo
+Adding logo to your GitHub App ensures that when our bot comments it'll use the image for easy identification. To add the logo:
 
 - Save and download the GlueOps logo image
 <img width="395" alt="Screenshot 2023-07-19 at 14 32 25" src="https://github.com/GlueOps/glueops-dev/assets/39309699/60278215-1711-4d0e-9d0e-fe674cdd58fd"/>
@@ -82,7 +83,6 @@ To add the logo to your your GitHub App This way when our bot comments it'll use
 :::info
 You can also upload your own custom image if desired.
 :::
-
 
 ## Get Installation ID
 
@@ -100,7 +100,7 @@ To complete the GitHub App setup, you need to install the GitHub App in your org
 
 
 ::: note
-If your GitHub rganization is "glueops-rocks," the URL would be `https://github.com/organizations/glueops-rocks/settings/installations/12345678`, and the GitHub App Installation ID would be `12345678`.
+If your GitHub organization is "glueops-rocks," the URL would be `https://github.com/organizations/glueops-rocks/settings/installations/12345678`, and the GitHub App Installation ID would be `12345678`.
 
 ## Retrieving values
 
