@@ -167,7 +167,7 @@ const config = {
           },
           
         ],
-        copyright: `Released under the MIT License. <br /> &copy; ${new Date().getFullYear()} Copyright Nx.`,
+        copyright: `Copyright Glueops.`,
       },
       prism: {
         theme: lightCodeTheme,
