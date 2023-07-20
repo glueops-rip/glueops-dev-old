@@ -67,7 +67,7 @@ The configurations within these directories apply to specific sets of environmen
 
 To set up your `deployment-configurations` repository:
 
-1. [Create a new repository](https://github.com/new?template_name=deployment-configurations&template_owner=GlueOps) using the provided template in your GitHub organization.
+1. Create a new repository using the provided [template](https://github.com/new?template_name=deployment-configurations&template_owner=GlueOps) in your GitHub organization.
 
 2. Replace the sample application names (`app1` and `app2`) with the names of the applications you want to deploy.
 
