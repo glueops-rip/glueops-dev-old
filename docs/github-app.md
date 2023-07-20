@@ -1,8 +1,10 @@
 ---
 id: github-app
-title: Create the GitHub App
+title: Create GitHub App
 type: tutorial
 ---
+
+# Creating your GitHub App
 
 The GlueOps Platform utilizes a GitHub App to access your GitHub Organizations to provide the following services:
 
@@ -45,7 +47,6 @@ To create the GitHub App, follow these steps:
 
 <img width="563" alt="Screenshot 2023-07-19 at 15 24 01" src="https://github.com/GlueOps/glueops-dev/assets/39309699/8c0cf32e-3e2f-41d7-b810-bf9bc719e6dd"/>
 
-
 4. After creating the GitHub App, you will be provided with an **App ID**. 
 
 <img width="563" alt="Screenshot 2023-07-19 at 15 24 01" src="https://github.com/GlueOps/glueops-dev/assets/39309699/108a533b-69de-4ff9-a266-96354d6728ed"/>
@@ -82,7 +83,6 @@ Adding logo to your GitHub App ensures that when our bot comments it'll use the 
 :::info
 You can also upload your own custom image if desired.
 :::
-
 
 ## Get Installation ID
 

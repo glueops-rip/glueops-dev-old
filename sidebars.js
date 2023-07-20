@@ -19,19 +19,9 @@ const sidebars = {
   // But you can create a sidebar manually
   main: [
     "introduction",
-    {
-      type: "category",
-      label: "Getting Started",
-      items: [
-        "getting-started/oauth",
-        "getting-started/github-app"
-      ],
-      link: {
-        type: "generated-index",
-        title: "Get Started",
-        slug: "/get-started",
-      },
-    },
+    "github-oauth",
+    "github-app",
+    "deployment-configuration",
   ],
 };
 
