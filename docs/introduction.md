@@ -5,17 +5,17 @@ type: explainer
 ---
 
 
-The GlueOps Platform is a powerful DevOps and DataOps solution that enables a seamless, GitOps-driven workflow for deploying production and staging applications. It provides a centralized orchestration point for managing the deployment and infrastructure of applications, streamlining the development process and improving collaboration between developers and operations teams. With the GlueOps Platform, developers can easily manage application deployments, create ephemeral preview environments, and ensure the smooth transition of changes to production.
+GlueOps offers powerful platforms that enable a seamless, GitOps-driven workflow for deploying applications in production and nonprod environments. GlueOps provides both DevOps and DataOps solutions that are a centralized orchestration point for managing the deployment and infrastructure of applications, streamlining the development process and improving collaboration between developers and operations teams. With the GlueOps Platform, developers can easily manage application deployments, create ephemeral preview environments, and ensure the smooth transition of changes to production.
 
 ## Platform Components
 
-The GlueOps Platform consists of several key components that work together to facilitate efficient and automated application deployments. These components include:
+The GlueOps DevOps Platform consists of several key components that work together to facilitate efficient and automated application deployments. These components include:
 
 1. **GlueOps Platform**: The central orchestration point of all GlueOps services. The Platform utilizes webhooks to monitor repository activity and automatically updates application deployments and infrastructure based on changes within repositories.
 
 2. **Repositories**: Application deployments are managed through repositories. The GlueOps Platform supports two main types of repositories:
 
-   - **Application-Stack Repository**: A central repository that configures both production and non-production deployments within the GlueOps Platform. It defines the infrastructure, environments, and dependencies required for application deployments. Additionally, it generates ephemeral preview environments that allow developers to explore and validate their applications before merging changes or deploying to production.
+   - **Deployment Configurations Repository**: A central repository that configures both production and non-production deployments within the GlueOps Platform. It defines the infrastructure, environments, and dependencies required for application deployments. Additionally, it generates ephemeral preview environments that allow developers to explore and validate their applications before merging changes or deploying to production.
    
    - **Application Repositories**: These repositories contain the actual application code, configurations, and Dockerfiles. Each application repository must include a Dockerfile, which defines the build process for creating the application's container image. Application repositories enable developers to manage and version control their applications independently, allowing for flexibility in deploying and scaling different applications.
 
