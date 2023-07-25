@@ -5,7 +5,7 @@ title: Deployment Configurations
 
 # Deployment Configurations: Setting Up Your Repository
 
-In the deployment configurations repository you can centrally manage configurations for deployments on the GlueOps Platform. This guide will walk you through the steps to set up your repository, providing a detailed explanation of its structure and how to customize it to suit your organization's needs.
+In the deployment configurations repository you can centrally manage configurations for deployments on the GlueOps Platform. This guide will walk you through the steps to set up your repository, providing a detailed explanation of its structure and how to customize it to suit your organization's needs.  You can find a template for a [deployment-configurations](https://github.com/GlueOps/deployment-configurations) to ease setup overhead.
 
 ## Directory Structure
 
