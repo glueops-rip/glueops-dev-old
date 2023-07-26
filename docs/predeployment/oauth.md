@@ -29,19 +29,29 @@ To create the OAuth App, follow these steps:
 
 2. Click on **New Org OAuth App** button to create a new OAuth application.
 
-<img width="985" alt="Screenshot 2023-07-26 at 13 50 29" src="https://github.com/GlueOps/glueops-dev/assets/39309699/16bd0fb7-a19a-4c79-83ac-844fd82d4b47"/>
+<img width="995" alt="Screenshot 2023-07-26 at 20 28 27" src="https://github.com/GlueOps/glueops-dev/assets/39309699/b8348e31-1695-4b61-bd22-fd1513411034"/>
 
 3. Provide the following details for the OAuth app:
 
-   - **Application name**: Enter a name for your OAuth app. We recommend matching it with the cluster name that GlueOps will provide for easy identification.
+   - **Application name**: Enter a name for your OAuth app. GlueOps will provide the cluster name for you for easy identification. 
    
    - **Homepage URL**: Specify the homepage URL for your OAuth app. The homepage URLs have a common pattern ending with `onglueops.com`.
 
    - **Authorization callback URL**: Set the authorization callback URL for your OAuth app. Add `/callback` to the homepage URL that contains `onglueops.com` at the end.
 
+   Sure, let's break down the information based on the customer name "Neptune" and the provided details:
+
+  For example, let's assume we have a client called **Neptune**:
+   
+   - **Application Name**: `neptune-test-nonprod`, the term "nonprod" typically indicates a non-production or testing environment for applications
+   - **Cluster name**: GlueOps will provide the cluster name `neptune.onglueops.com` 
+   - **Captain domain**: The domain part that identifies your cluster is `nonprod.neptune.onglueops.com`
+   - **Homepage URL**: `https://dex.test-nonprod.neptune.onglueops.com`
+   - **Authorization callback URL**: `https://dex.test-nonprod.neptune.onglueops.com/callback`
+
 4. Once you have filled in the details, click on **Register application** to create the GitHub OAuth app.
 
-<img width="629" alt="Screenshot 2023-07-26 at 13 47 59" src="https://github.com/GlueOps/glueops-dev/assets/39309699/9be5ddb4-c500-41b1-9923-cc4e8fa3caa9"/>
+<img width="600" alt="Screenshot 2023-07-26 at 20 31 40" src="https://github.com/GlueOps/glueops-dev/assets/39309699/0b51eff1-a112-4bdb-98b0-1c88e579866c"/>
 
 Once your app is registered you'll receive your **OAuth App Client ID**
 
