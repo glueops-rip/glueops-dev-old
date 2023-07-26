@@ -29,7 +29,7 @@ const sidebars = {
       link: {
         type: "generated-index",
         title: "Pre-Deployment Setup",
-        description: "Before deploying your cluster, you need to create your GitHub OAuth App and a GitHub App. The values obtained from the apps enable secure access, authentication, and automated deployments on GlueOps.",
+        description: "Before deploying your cluster, you need to create your GitHub OAuth App and GitHub App. These apps will provide the necessary values for secure access, authentication, and automated deployments on GlueOps.",
         slug: "/predeployment",
       },
     },
