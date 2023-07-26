@@ -22,6 +22,7 @@ const sidebars = {
     {
       type: "category",
       label: "Pre-Deployment Setup",
+      collapsible: false,
       items: [
         "predeployment/github-oauth",
         "predeployment/github-app",
