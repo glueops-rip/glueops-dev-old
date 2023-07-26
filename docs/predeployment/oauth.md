@@ -8,7 +8,14 @@ type: tutorial
 
 Glueops authenticate services deployed on the Platform using the GitHub OAuth app. The OAuth app is installed within your GitHub Organization to provide secure access to your applications.
 
-## Create the OAuth App ID
+To enable GlueOps authenticate to your application, you will need to provide the following values, which is required for deploying the [terraform-module-cloud-multy-prerequisites](https://github.com/GlueOps/terraform-module-cloud-multy-prerequisites) module.
+
+- [github_oauth_app_client_id](#create-the-oauth-app-id): This is the Client ID of your GitHub OAuth app.
+- [github_oauth_app_client_secret](#generate-client-secret): This is the Client Secret generated for your GitHub OAuth app.
+
+Follow the step-by-step guide below to obtain these values:
+
+## 1. Create the OAuth App ID
 
 To create the OAuth App, follow these steps:
 
@@ -32,7 +39,7 @@ To create the OAuth App, follow these steps:
 
 Once your app is registered you'll receive your **OAuth App Client ID**
 
-## Generate Client Secret
+## 2. Generate Client Secret
 
 The client secret is a confidential value that is used for secure communication. To generate this:
 

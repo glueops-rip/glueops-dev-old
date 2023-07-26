@@ -19,8 +19,20 @@ const sidebars = {
   // But you can create a sidebar manually
   main: [
     "introduction",
-    "github-oauth",
-    "github-app",
+    {
+      type: "category",
+      label: "Pre-Deployment Setup",
+      items: [
+        "predeployment/github-oauth",
+        "predeployment/github-app",
+      ],
+      link: {
+        type: "generated-index",
+        title: "Pre-Deployment Setup",
+        description: "Before deploying your cluster, you need to create your GitHub OAuth App and a GitHub App. The values obtained from the apps enable secure access, authentication, and automated deployments on GlueOps.",
+        slug: "/predeployment",
+      },
+    },
     "deployment-configuration",
   ],
 };
