@@ -38,7 +38,7 @@ will provide for you.
 4. **Homepage URL**: Specify the homepage URL for your OAuth app. Your homepage URL should be the `captain_domain` provided by GlueOps with the URL suffix `https://dex`. The homepage URLs typically end with `onglueops.com`.
     - **Example**: For the given organization name **Neptune**, combine your application name `test-nonprod` with your cluster name `neptune.onglueops.com`, resulting in `test-nonprod.neptune.onglueops.com` which is referred to as the `captain_domain`(the domain part that identifies your cluster). Your homepage URL would be the `captain_domain` + the URL suffix `https://dex`: `https://dex.test-nonprod.neptune.onglueops.com`.
 
-5. **Authorization callback URL**: Set the authorization callback URL for your OAuth app. Add /callback to the homepage URL that contains onglueops.com at the end.
+5. **Authorization callback URL**: Set the authorization callback URL for your OAuth app. Add `/callback` to the homepage URL that contains onglueops.com at the end.
       - **Example**: For the given organization name **Neptune**, your Authorization callback URL for the Neptune would be `https://dex.test-nonprod.neptune.onglueops.com/callback`.
 
 6. Once you have filled in the details, click on **Register application** to create the GitHub OAuth app.
