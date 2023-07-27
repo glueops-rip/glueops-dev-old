@@ -40,17 +40,17 @@ You can also include the cluster identifier, in this case `nonprod` so this will
 
 4. **Homepage URL**: Specify the homepage URL for your OAuth app. The homepage URL contains the following
     - The URL suffix `https://dex`. Where `dex` is the service we manage for the customer.
-    - It contains the application name. In this case `order-api-nonprod`
+    - The application name. In this case `order-api-nonprod`
     - The subdomain identifying your organization. In this case `antoniostacos`
-    - The core domain for GlueOps tenant services `onglueops.com` 
+    - The core domain for GlueOps services `onglueops.com` 
 
-For the given cluster, the home page URL is `https://dex.order-api-nonprod.antoniostacos.onglueops.com`.
+For the example cluster, the home page URL is `https://dex.order-api-nonprod.antoniostacos.onglueops.com`.
 
-5. **Authorization callback URL**: Set the authorization callback URL for your OAuth app. Add `/callback` to the homepage URL that contains onglueops.com at the end. For the given cluster your authorization callback URL would be `https://dex.order-api-nonprod.antoniostacos.onglueops.com/callback`.
+5. **Authorization callback URL**: Set the authorization callback URL for your OAuth app. Add `/callback` to the homepage URL. For the example cluster your authorization callback URL would be `https://dex.order-api-nonprod.antoniostacos.onglueops.com/callback`.
 
 6. Once you have filled in the details, click on **Register application** to create the GitHub OAuth app.
 
-<img width="742" alt="Screenshot 2023-07-27 at 13 43 00" src="https://github.com/GlueOps/glueops-dev/assets/39309699/6b048789-26cb-4f50-b980-1ecee69bcd63"/>
+<img width="75%" alt="Screenshot 2023-07-27 at 13 43 00" src="https://github.com/GlueOps/glueops-dev/assets/39309699/6b048789-26cb-4f50-b980-1ecee69bcd63"/>
 
 
 Once your app is registered you'll receive your **OAuth App Client ID**
