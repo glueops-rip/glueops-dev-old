@@ -33,8 +33,8 @@ To create the OAuth App, follow these steps:
 
 3. **Application name**: Enter a name for your OAuth app. It should match the cluster name which GlueOps 
 will provide for you.
-   - **Example**: Assuming your organization name is **Neptune** and Glueops provides a cluster name `neptune.onglueops.com`, your application name should match your cluster name, such as `neptune-test-nonprod`, `neptune-nonprod`, `neptune-test-prod`
-
+   - **Example**: Assuming your organization name is **Neptune** and Glueops provides a cluster name `neptune.onglueops.com`, your application name should match your cluster name for e.g `neptune-test-nonprod`.
+   
 4. **Homepage URL**: Specify the homepage URL for your OAuth app. Your homepage URL should be the `captain_domain` provided by GlueOps with the URL suffix `https://dex`. The homepage URLs typically end with `onglueops.com`.
     - **Example**: For the given organization name **Neptune**, combine your application name `test-nonprod` with your cluster name `neptune.onglueops.com`, resulting in `test-nonprod.neptune.onglueops.com` which is referred to as the `captain_domain`(the domain part that identifies your cluster). Your homepage URL would be the captain_domain + the URL suffix `https://dex`: `https://dex.test-nonprod.neptune.onglueops.com`.
 
