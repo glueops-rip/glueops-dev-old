@@ -16,7 +16,7 @@ To enable GlueOps authentication for your application, you need to provide the f
 Follow the step-by-step guide below to obtain these values:
 
 :::info
-For each cluster you deploy with the GlueOps platform, you must create a new GitHub app.
+For each cluster you deploy with the GlueOps platform, you must create a new GitHub OAuth app.
 :::
 
 ## 1. Create the OAuth App ID
@@ -31,25 +31,17 @@ To create the OAuth App, follow these steps:
 
 <img width="995" alt="Screenshot 2023-07-26 at 20 28 27" src="https://github.com/GlueOps/glueops-dev/assets/39309699/b8348e31-1695-4b61-bd22-fd1513411034"/>
 
-3. Provide the following details for the OAuth app:
+3. **Application name**: Enter a name for your OAuth app. It should match the cluster name which GlueOps 
+will provide for you.
+   - **Example**: Assuming your organization name is **Neptune** and Glueops provides a cluster name `neptune.onglueops.com`, your application name should match your cluster name, such as `neptune-test-nonprod`, `neptune-nonprod`, `neptune-test-prod`
 
-   - **Application name**: Enter a name for your OAuth app. GlueOps will provide the cluster name for you for easy identification. 
-   
-   - **Homepage URL**: Specify the homepage URL for your OAuth app. The homepage URLs have a common pattern ending with `onglueops.com`.
+4. **Homepage URL**: Specify the homepage URL for your OAuth app. Your homepage URL should be the `captain_domain` provided by GlueOps with the URL suffix `https://dex`. The homepage URLs typically end with `onglueops.com`.
+    - **Example**: For the given organization name **Neptune**, combine your application name `test-nonprod` with your cluster name `neptune.onglueops.com`, resulting in `test-nonprod.neptune.onglueops.com` which is referred to as the `captain_domain`(the domain part that identifies your cluster). Your homepage URL would be the captain_domain + the URL suffix `https://dex`: `https://dex.test-nonprod.neptune.onglueops.com`.
 
-   - **Authorization callback URL**: Set the authorization callback URL for your OAuth app. Add `/callback` to the homepage URL that contains `onglueops.com` at the end.
+5. **Authorization callback URL**: Set the authorization callback URL for your OAuth app. Add /callback to the homepage URL that contains onglueops.com at the end.
+      - **Example**: For the given organization name **Neptune**, your Authorization callback URL for the Neptune would be `https://dex.test-nonprod.neptune.onglueops.com/callback`.
 
-   Sure, let's break down the information based on the customer name "Neptune" and the provided details:
-
-  For example, let's assume we have a client called **Neptune**:
-   
-   - **Application Name**: `neptune-test-nonprod`, the term "nonprod" typically indicates a non-production or testing environment for applications
-   - **Cluster name**: GlueOps will provide the cluster name `neptune.onglueops.com` 
-   - **Captain domain**: The domain part that identifies your cluster is `nonprod.neptune.onglueops.com`
-   - **Homepage URL**: `https://dex.test-nonprod.neptune.onglueops.com`
-   - **Authorization callback URL**: `https://dex.test-nonprod.neptune.onglueops.com/callback`
-
-4. Once you have filled in the details, click on **Register application** to create the GitHub OAuth app.
+6. Once you have filled in the details, click on **Register application** to create the GitHub OAuth app.
 
 <img width="600" alt="Screenshot 2023-07-26 at 20 31 40" src="https://github.com/GlueOps/glueops-dev/assets/39309699/0b51eff1-a112-4bdb-98b0-1c88e579866c"/>
 
@@ -57,9 +49,10 @@ Once your app is registered you'll receive your **OAuth App Client ID**
 
 ## 2. Generate Client Secret
 
-The client secret is a confidential value that is used for secure communication. To generate this:
+The client secret is a confidential value that is used for secure communication. In the OAuth app settings page:
 
-In the OAuth app settings page, scroll down to the Client Secrets section and click on **Generate a new client secret**.
+- Scroll down to the **Client Secrets** section
+- Click on **Generate a new client secret**.
 
 <img width="541" alt="register_oauth" src="https://github.com/GlueOps/glueops-dev/assets/39309699/6de6a13d-2a85-4dcf-b89d-e9c42ddda396"/>
 
