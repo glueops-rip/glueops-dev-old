@@ -33,14 +33,18 @@ To create the OAuth App, follow these steps:
 
 3. **Application name**: Enter a name for your OAuth app. It should match the cluster name which GlueOps 
 will provide for you.
-   - **Example**: Assuming your organization is **Neptune** and Glueops provides a cluster name `neptune.onglueops.com`, your application name should match your cluster name for e.g `neptune-test-nonprod`.
+   - **Example**: Assuming your cluster domain is `neptune-test.nonprod.neptune.onglueops.com`, your application name should match your cluster name for e.g `neptune-test`. 
 
-4. **Homepage URL**: Specify the homepage URL for your OAuth app. Your homepage URL should be the `captain_domain`(the domain part that identifies your cluster) + the URL suffix `https://dex`. The homepage URLs typically end with `onglueops.com`.
+:::info
+You can also include the cluster identifier, in that case `nonprod` so this will be `neptune-test-nonprod` 
+:::
 
-    - **Example**: For the given organization **Neptune**, combine your application name `test-nonprod` with your cluster name `neptune.onglueops.com`, resulting in `test-nonprod.neptune.onglueops.com` which is referred to as the `captain_domain`. Your homepage URL would be the `captain_domain` + `https://dex` = `https://dex.test-nonprod.neptune.onglueops.com`.
+4. **Homepage URL**: Specify the homepage URL for your OAuth app. Your homepage URL is your cluster name+ the URL suffix `https://dex`. The homepage URLs typically end with `onglueops.com`.
+
+    - **Example**: For the given cluster, the home page URL is `https://dex.neptune-test-nonprod.neptune.onglueops.com`.
 
 5. **Authorization callback URL**: Set the authorization callback URL for your OAuth app. Add `/callback` to the homepage URL that contains onglueops.com at the end.
-      - **Example**: For the given organization **Neptune**, your Authorization callback URL would be `https://dex.test-nonprod.neptune.onglueops.com/callback`.
+      - **Example**: For the given organization **Neptune**, your Authorization callback URL would be `https://dex.neptune-test-nonprod.neptune.onglueops.com/callback`.
 
 6. Once you have filled in the details, click on **Register application** to create the GitHub OAuth app.
 
