@@ -19,7 +19,7 @@ Follow the step-by-step guide below to obtain these values:
 For each cluster you deploy with the GlueOps platform, you must create a new GitHub OAuth app.
 :::
 
-## 1. Create the OAuth App ID
+## Create the OAuth App ID
 
 To create the OAuth App, follow these steps:
 
@@ -55,7 +55,7 @@ For the example cluster, the home page URL is `https://dex.order-api-nonprod.ant
 
 Once your app is registered you'll receive your **OAuth App Client ID**
 
-## 2. Generate Client Secret
+## Generate Client Secret
 
 The client secret is a confidential value that is used for secure communication. In the OAuth app settings page:
 

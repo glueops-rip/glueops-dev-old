@@ -23,7 +23,7 @@ For each cluster you deploy with the GlueOps platform, create a separate GitHub 
 
 Follow the step-by-step guide below to obtain these values:
 
-## 1. Create the GitHub App ID
+## Create the GitHub App ID
 
 To create the GitHub App, follow these steps:
 
@@ -66,7 +66,7 @@ Github App name cannot be longer than 34 characters. if the character limit perm
 
 <img width="600%" alt="Screenshot 2023-07-27 at 23 47 04" src="https://github.com/GlueOps/glueops-dev/assets/39309699/8e65e5b7-104f-4fac-90d5-3bc3d58ae12c"/>
 
-## 2. Generate the private key
+## Generate the private key
 
 To generate the private key for your GitHub App, follow these steps:
 
@@ -87,7 +87,7 @@ Replace `<downloaded-keyfile>` with the actual name of the downloaded key file.
 For macbook users run `cat <downloaded-keyfile>.pem | base64`
 :::
 
-## 3. Add Display logo(Optional)
+## Add Display logo(Optional)
 Adding logo to your GitHub App ensures that when our bot comments it'll use the image for easy identification. To add the logo:
 
 - Save and download the GlueOps logo image
@@ -106,7 +106,7 @@ Once uploaded, this is the final outcome
 You can also upload your own custom image if desired.
 :::
 
-## 4. Get Installation ID
+## Get Installation ID
 
 To complete the GitHub App setup, you need to install the GitHub App in your organization. 
 

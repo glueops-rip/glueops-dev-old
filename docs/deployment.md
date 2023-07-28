@@ -1,5 +1,5 @@
 ---
-id: deployment-configuration
+id: glueops-deployment-configuration
 title: Deployment Configurations
 ---
 

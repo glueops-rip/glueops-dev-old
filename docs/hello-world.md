@@ -1,5 +1,5 @@
 ---
-id: deploy-hello-world
+id: deploy-hello-world-to-glueops
 title: Deploy a "Hello World" Application
 type: tutorial
 ---
@@ -8,21 +8,21 @@ type: tutorial
 
 In this guide, we will walk you through the process of deploying a "Hello World" application onto the GlueOps platform. We'll start from scratch and cover each step in detail to ensure you have a smooth deployment experience.
 
-## Step 1: Create a New Repository and set up your application folder
+## Create a New Repository and set up your application folder
 
 1. Create a new repository for your application within your organization. 
 
-2. Create the necessary folders and files for your application. You can use the following folder structure:
+2. Set up the necessary folders and files for your application. You can use the following folder structure:
 
 ```
 demo-app-1
 ├── .github
 │   └── workflows
-├── Dockerfile
 ├── README.md
 └── index.html
 ```
-## Step 2: Set Up GitHub Actions for Docker Image Publishing
+
+## Set Up GitHub Actions for Docker Image Publishing
 
 Now, let's configure GitHub Actions to automatically publish a Docker image of your application. This will allow the GlueOps platform to use the latest version of your app. Here's how you can set it up:
 
@@ -47,24 +47,8 @@ jobs:
 GlueOps only supports container images published to the supported registry. As a happy path, we have provided this [Custom Action to push Docker images to GitHub Container Registry](https://github.com/marketplace/actions/build-docker-image-and-push-to-ghcr).
 :::
 
-## Step 3: Define Environments
 
-In this step, we'll define the different environments your application will be deployed to. For this example, we'll use three environments: `prod`, `stage`, and `uat`. Organize your repository structure as follows:
-
-```
-.
-├── .github
-│   └── workflows
-│       ├── ghcr.yaml
-│       ├── prod-ci.yaml
-│       ├── stage-ci.yaml
-│       └── uat-ci.yaml
-├── Dockerfile
-├── README.md
-└── index.html
-```
-
-## Step 4: Configure GitHub Token as a Repository Secret
+## Configure GitHub Token as a Repository Secret
 
 To enable GitHub Actions to notify our Argo CD of code changes, we need to configure a GitHub token as a repository secret. Here's how you can set it up:
 
@@ -83,12 +67,105 @@ To enable GitHub Actions to notify our Argo CD of code changes, we need to confi
 
 <img width="869" alt="Screenshot 2023-07-28 at 02 55 12" src="https://github.com/GlueOps/glueops-dev/assets/39309699/a7bca229-ed48-4679-ba45-6a863977820c"/>
 
-5. Place your copied token in the secret input field and click **Add secret**
+5. Add your secret name and place your copied token in the secret input field  and click **Add secret**. In our case we called our secret name `GH_TOKEN`
 
 <img width="870" alt="Screenshot 2023-07-28 at 02 58 50" src="https://github.com/GlueOps/glueops-dev/assets/39309699/a356b1c6-6040-46f0-9b50-c57a2b606dc2"/>
 
+## Configure GitHub Workflows for Each Environment
 
-## Step 5: Deploy the App and Register Environments
+In the `.github/workflows` directory of your application repository, there are three workflow files for each environment: `prod-ci.yaml`, `stage-ci.yaml`, and `uat-ci.yaml`. These files define the GitHub Actions workflows specific to each environment.
+```
+.
+├── .github
+│   └── workflows
+│       ├── ghcr.yaml
+│       ├── prod-ci.yaml
+│       ├── stage-ci.yaml
+│       └── uat-ci.yaml
+├── Dockerfile
+├── README.md
+└── index.html
+```
+
+Each workflow file uses the `GlueOps/github-workflows/.github/workflows/argocd-tags-ci.yml` action to notify Argo CD about the new image tags and initiate the deployment process.
+
+###  `prod-ci.yaml` Environment Sample Configuration:
+
+In the `prod-ci.yaml` file add the following content:
+
+```yaml
+# .github/workflows/prod-ci.yaml
+
+name: ArgoCD - Prod Tags CI
+
+on:
+  release:
+    types:
+      - created
+jobs:
+  update-tags:
+    uses: GlueOps/github-workflows/.github/workflows/argocd-tags-ci.yml@main
+    secrets:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    with:
+      STACK_REPO: 'deployment-configurations'
+      ENV: 'prod'
+      CREATE_PR: true
+```
+
+###  `stage-ci.yaml` Environment Sample Configuration:
+
+In the `stage-ci.yaml` file add the following content:
+
+```yaml
+# .github/workflows/uat-ci.yaml
+
+name: ArgoCD - Prod Tags CI
+
+on:
+  release:
+    types:
+      - created
+jobs:
+  update-tags:
+    uses: GlueOps/github-workflows/.github/workflows/argocd-tags-ci.yml@main
+    secrets:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    with:
+      STACK_REPO: 'deployment-configurations'
+      ENV: 'prod'
+      CREATE_PR: true
+```
+
+###  `uat-ci.yaml` Environment Sample Configuration:
+
+In the `uat-ci.yaml` file add the following content: 
+
+```yaml
+# .github/workflows/uat-ci.yaml
+
+name: ArgoCD - Prod Tags CI
+
+on:
+  release:
+    types:
+      - created
+jobs:
+  update-tags:
+    uses: GlueOps/github-workflows/.github/workflows/argocd-tags-ci.yml@main
+    secrets:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    with:
+      STACK_REPO: 'deployment-configurations'
+      ENV: 'prod'
+      CREATE_PR: true
+```
+
+:::info
+Replace `secrets.GH_TOKEN` with the correct secret name if you used a different name for the GitHub token secret.
+:::
+
+## Deploy the App and Register Environments
 
 Next, let's deploy the app and register the specified environments (prod, stage, uat) inside the GlueOps Argo CD. Here's what you need to do:
 
@@ -206,7 +283,8 @@ Replace the placeholders as follows:
 :::
 
 6. Save and commit your changes to the deployment repository.
-## Step 6: Add a Simple HTML "Hello World" Code
+
+## Add a Simple HTML "Hello World" Code
 
 Go back to your application repository and edit the `index.html` file. Add a simple "Hello World" HTML code, like this:
 
@@ -222,7 +300,7 @@ Go back to your application repository and edit the `index.html` file. Add a sim
 
 Save the file and commit your changes.
 
-## Step 7: Trigger the GitHub Action for Docker Image Publishing
+## Trigger the GitHub Action for Docker Image Publishing
 
 Create a pull request (PR) to trigger the GitHub Action you set up for publishing the Docker image based on the latest code changes. The platform will automatically spin up a new environment and deploy the application.
 
@@ -231,17 +309,17 @@ To view the app click on the preview URL. You can check the status of the deploy
 <img width="420" alt="Screenshot 2023-07-28 at 12 53 14" src="https://github.com/GlueOps/glueops-dev/assets/39309699/9661e169-6eee-4bec-a5ee-145751e40b6f"/>
 
 
-## Step 8: Deploying to Environments
+## Deploying to Environments
 
-### Check application deployed to your Staging enviroment
+### Check application deployed to your Staging Enviroment
 
 The staging enviroment is automatically deployed, to check your application:
 
-1. Navigate to the `envs/stage` directory within the deployment-configurations repository.
+1. Navigate to the `envs/stage` directory within the [deployment-configurations](https://github.com/GlueOps/deployment-configurations) repository.
 
 2. In the `values.yaml` file located in the `stage` folder, you will find the configuration for the staging environment. Check the `hostname` entry to check your application deployed to the staging environment.
 
-### Deploying to Production (Prod) and User Acceptance Testing (UAT) Environments
+### Deploying to `prod` and `uat` Environments
 
 1. To deploy your application to the prod and UAT environments, you need to create a release in your application's repository (e.g., v0.1.0, v1.0.0, etc.). This release will mark the specific version of your application that you want to deploy to these environments.
 
@@ -249,9 +327,9 @@ The staging enviroment is automatically deployed, to check your application:
 
 <img width="362" alt="Screenshot 2023-07-28 at 13 19 12" src="https://github.com/GlueOps/glueops-dev/assets/39309699/5bc936a8-adcd-40f4-bdc8-ff8b3290ce0d"/>
 
-3. Review and merge the pull requests in the deployment-configurations repository. This will trigger the deployment process to both the prod and UAT environments.
+3. Review and merge the pull requests in the deployment-configurations repository. This will trigger the deployment process to both the `prod` and `uat` environments.
 
-5. Once the deployment process is completed, your application will be accessible in both the prod and UAT environments hostnames 
+5. Once the deployment process is completed, your application will be accessible in both the `prod` and `uat` environments hostnames 
 
 ## Conclusion
 
