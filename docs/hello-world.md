@@ -64,31 +64,38 @@ In this step, we'll define the different environments your application will be d
 └── index.html
 ```
 
-4. Configure a GitHub token as a repository secret. This token is essential for running actions and notifying our Argo CD of code changes. Go to **Settings > Security > Secrets and Varibales > Actions**
+## Step 4: Configure GitHub Token as a Repository Secret
 
+To enable GitHub Actions to notify our Argo CD of code changes, we need to configure a GitHub token as a repository secret. Here's how you can set it up:
+
+1. Go to your repository and navigate to **Settings > Security > Secrets and Variables > Actions**.
 <img width="422" alt="Screenshot 2023-07-28 at 02 47 16" src="https://github.com/GlueOps/glueops-dev/assets/39309699/f3468172-98cb-4b4f-a2fe-42e1006d772c"/>
 
-5. Click on **New repository secret** to create a new token.
+2. Click on **New repository secret** to create a new token.
 
 <img width="830" alt="Screenshot 2023-07-28 at 02 48 23" src="https://github.com/GlueOps/glueops-dev/assets/39309699/a4aca65d-483a-4b43-b55e-1a4080eb62e1"/>
 
-6. To get your token secret Go to https://github.com/settings/tokens and click on Generate new token.
+3. To get your token secret, go to https://github.com/settings/tokens and click on "Generate new token."
 
 <img width="927" alt="Screenshot 2023-07-28 at 02 51 03" src="https://github.com/GlueOps/glueops-dev/assets/39309699/158bbb62-6710-4933-b076-1efb8d6bdc02"/>
 
-7. Use the onscreen information to generate your token and the only scope required is the repo. Click on Generate token and copy your token
+4. Use the onscreen information to generate your token. The only scope required is the "repo" scope. Click on "Generate token" and copy your token.
 
 <img width="869" alt="Screenshot 2023-07-28 at 02 55 12" src="https://github.com/GlueOps/glueops-dev/assets/39309699/a7bca229-ed48-4679-ba45-6a863977820c"/>
 
-8. Place your copied token in the secret input field and click add secret. Don't forget to 
-
+5. Place your copied token in the secret input field and click **Add secret**
 
 <img width="870" alt="Screenshot 2023-07-28 at 02 58 50" src="https://github.com/GlueOps/glueops-dev/assets/39309699/a356b1c6-6040-46f0-9b50-c57a2b606dc2"/>
 
-Next, deploy the app and register the specified enviroments, in our case (prod, stag, uat) inside of the our Argo CD. go to In the deployment-configurations repo.
-in the app directory 
 
-- We have two example demo apps deployed in the repo. Duplicate one of them and rename to your own application that you want to deploy. This is what your structure should look like
+## Step 5: Deploy the App and Register Environments
+
+Next, let's deploy the app and register the specified environments (prod, stage, uat) inside the GlueOps Argo CD. Here's what you need to do:
+
+1. Go to the [deployment-configurations](https://github.com/GlueOps/deployment-configurations) repository.
+2. Inside the `app` directory, duplicate one of the example demo apps and rename it to your application's name.
+3. Your application directory should have the following structure:
+
 ```
 ├── demo-app-1
 ├── base
@@ -100,49 +107,55 @@ in the app directory
 │   └── uat
 ```
 
-in the `base-values.yaml` file in the `base` directory, change the information there to fit into your application. For our example our `base-values.yaml`  will look like this 
+4. In the `base-values.yaml` file inside the `base` directory, update the information to fit your application. For example, the `base-values.yaml` might look like this:
 
-```
+```yaml
 image:
   registry: ghcr.io
   repository: venkata-tenant-test-1/demo-app-1
   port: 80
 ```
 
-Change venkata-tenant-test-1/demo-app-1 to match your organization and repository name.
-:::
+Replace `venkata-tenant-test-1/demo-app-1` with your organization and repository name.
 
-Within the `env` directorIn the `values.yaml` file in the `prod` folder copy and paste the following
+5. Update the `values.yaml` file in the `prod`, `stage`, and `uat` folders accordingly. Change the image tag, hostnames, and other necessary details to match your application and GlueOps configuration.
 
-```
+###  `prod` Environment Sample Configuration:
+
+Create a file named `values.yaml` in the `envs/prod` folder and add the following content:
+
+```yaml
+# envs/prod/values.yaml
+
 image:
   tag: 'v0.2.0'
+
 ingress:
   enabled: true
   ingressClassName: public
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
   tls:
-    - secretName: demo-app-1.yolo.venkatamutyala.com
+    - secretName: demo-app-1-prod.yolo.venkatamutyala.com
       hosts:
-        - demo-app-1.yolo.venkatamutyala.com
+        - demo-app-1-prod.yolo.venkatamutyala.com
   entries:
     - name: public
       hosts:
-        - hostname: demo-app-1.apps.test-80-np.venkata.onglueops.rocks
-        - hostname: demo-app-1.yolo.venkatamutyala.com
+        - hostname: demo-app-1-prod.apps.test-80-np.venkata.onglueops.rocks
+        - hostname: demo-app-1-prod.yolo.venkatamutyala.com
 ```
-- 
 
-Change demo-app-1 to your repo name
-Change venkatamutyala.com to your hosting name
-Change test-80-np.venkata.onglueops.rocks to your cluster name provided by GlueOps
+###  `stage` Environment Sample Configuration:
 
-For the staging enviroment
+Create a file named `values.yaml` in the `envs/stage` folder and add the following content:
 
-```
+```yaml
+# envs/stage/values.yaml
+
 image:
-  tag: latest
+  tag: 'latest'
+
 ingress:
   enabled: true
   ingressClassName: public
@@ -158,15 +171,17 @@ ingress:
         - hostname: demo-app-1-stage.apps.test-80-np.venkata.onglueops.rocks
         - hostname: demo-app-1-stage.yolo.venkatamutyala.com
 ```
-Change demo-app-1 to your repo name
-Change venkatamutyala.com to your hosting name
-Change test-80-np.venkata.onglueops.rocks to your cluster name provided by GlueOps
 
-For uat 
+### `uat` Environment Sample Configuration:
 
-```
+Create a file named `values.yaml` in the `envs/uat` folder and add the following content:
+
+```yaml
+# envs/uat/values.yaml
+
 image:
   tag: 'v0.1.0'
+
 ingress:
   enabled: true
   ingressClassName: public
@@ -182,15 +197,20 @@ ingress:
         - hostname: demo-app-1-uat.apps.test-80-np.venkata.onglueops.rocks
         - hostname: demo-app-1-uat.yolo.venkatamutyala.com
 ```
-Change demo-app-1 to your repo name
-Change venkatamutyala.com to your hosting name
-Change test-80-np.venkata.onglueops.rocks to your cluster name provided by GlueOps
 
-Save and commit your changes to your deployment repository
+:::important
+Replace the placeholders as follows:
+- Replace `demo-app-1` with your actual repository name.
+- Replace v`enkatamutyala.com` with your actual hosting name.
+- Replace `test-80-np.venkata.onglueops.rocks` with the name of your GlueOps cluster provided by GlueOps.
+:::
 
-Now let's go back to your repo and in your `index.html` file add a simple HTML World code. you can copy and paste the sample below:
+6. Save and commit your changes to the deployment repository.
+## Step 6: Add a Simple HTML "Hello World" Code
 
-```
+Go back to your application repository and edit the `index.html` file. Add a simple "Hello World" HTML code, like this:
+
+```html
 <html>
  <head>
  </head>
@@ -200,21 +220,38 @@ Now let's go back to your repo and in your `index.html` file add a simple HTML W
 </html>
 ```
 
-Commit and create a PR to Trigger the GitHub Action you set up to publish the Docker image based on the latest code changes. The platform will automatically spin up a new environment and deploy the application.
+Save the file and commit your changes.
+
+## Step 7: Trigger the GitHub Action for Docker Image Publishing
+
+Create a pull request (PR) to trigger the GitHub Action you set up for publishing the Docker image based on the latest code changes. The platform will automatically spin up a new environment and deploy the application.
+
+To view the app click on the preview URL. You can check the status of the deployment on Argos CD, which will show metrics, logs, and more. The QR code will also lead you to the preview URL.
 
 <img width="420" alt="Screenshot 2023-07-28 at 12 53 14" src="https://github.com/GlueOps/glueops-dev/assets/39309699/9661e169-6eee-4bec-a5ee-145751e40b6f"/>
 
-If you want to see the app click on the preview URL. You can check the status of the deployment on Argos CD, which will show metrics, logs, and more. The QR code will also lead you to the preview URL.
 
-## Deploying to Additional Environments
+## Step 8: Deploying to Environments
 
-If you go back to your application you registred in the deployment configuration,  In `env` directory when you check the hostname in your in your stage folder you should be able to see your app
+### Check application deployed to your Staging enviroment
 
-To deploy the application to prod and UAT, go to your repository and create a release with an appropriate tag (e.g., v0.1.0).This release will generate pull requests into the deployment repository, updating the corresponding environment with the new image.
-Merge the pull request to trigger the deployment. Now your uat and prod host name link should be working 
+The staging enviroment is automatically deployed, to check your application:
 
+1. Navigate to the `envs/stage` directory within the deployment-configurations repository.
+
+2. In the `values.yaml` file located in the `stage` folder, you will find the configuration for the staging environment. Check the `hostname` entry to check your application deployed to the staging environment.
+
+### Deploying to Production (Prod) and User Acceptance Testing (UAT) Environments
+
+1. To deploy your application to the prod and UAT environments, you need to create a release in your application's repository (e.g., v0.1.0, v1.0.0, etc.). This release will mark the specific version of your application that you want to deploy to these environments.
+
+2. Upon creating the release, GitHub will automatically generate pull requests into the deployment-configurations repository. These pull requests will contain the necessary changes for the prod and UAT environments, located in the `envs/prod` and `envs/uat` directories, respectively.
 
 <img width="362" alt="Screenshot 2023-07-28 at 13 19 12" src="https://github.com/GlueOps/glueops-dev/assets/39309699/5bc936a8-adcd-40f4-bdc8-ff8b3290ce0d"/>
+
+3. Review and merge the pull requests in the deployment-configurations repository. This will trigger the deployment process to both the prod and UAT environments.
+
+5. Once the deployment process is completed, your application will be accessible in both the prod and UAT environments hostnames 
 
 ## Conclusion
 
