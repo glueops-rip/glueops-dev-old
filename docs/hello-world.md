@@ -6,24 +6,31 @@ type: tutorial
 
 # Deploy a "Hello World" Application
 
-In this guide, we will walk you through the process of deploying a "Hello World" application onto the GlueOps platform. The deployment process involves creating an application repository containing the app's code and configuring GitHub Actions to notify the GlueOps platform of the deployment. 
+In this guide, we will walk you through the process of deploying a "Hello World" application onto the GlueOps platform. We'll start from scratch and cover each step in detail to ensure you have a smooth deployment experience.
 
-To get started:
+Step 1: Create a New Repository and set up your application folder
 
-1. Create a new repository for your application within your organization. You can have a simple folder structure like this:
+1. Create a new repository for your application within your organization. 
 
-``` demo-app-1
+2. Create the necessary folders and files for your application. You can use the following folder structure:
+
+```
+demo-app-1
 ├── .github
 │   └── workflows
 ├── Dockerfile
 ├── README.md
 └── index.html
-
 ```
+## Step 2: Set Up GitHub Actions for Docker Image Publishing
 
-2. The first action you need to perform is publishing a Docker image of your application. In the `github/workflows` folder create a file `ghcr.yaml` and copy and paste the following code:
+Now, let's configure GitHub Actions to automatically publish a Docker image of your application. This will allow the GlueOps platform to use the latest version of your app. Here's how you can set it up:
 
-```
+1. In your newly created repository, navigate to the `.github/workflows` folder.
+2. Create a new file named `ghcr.yaml` in the `workflows` folder.
+3. Copy and paste the following code into `ghcr.yaml`:
+
+```yaml
 name: GlueOps Action
  
 on: [push]
@@ -35,11 +42,14 @@ jobs:
       - name: Build, Tag and Push Docker Image to GHCR
         uses: GlueOps/github-actions-build-push-containers@v0.1.2
 ```
+
 :::tip
-GlueOps only supports container images published to supported registry. As a happy path we have provide this [Custom Action to push Docker images to GitHub Container Registry](https://github.com/marketplace/actions/build-docker-image-and-push-to-ghcr).
+GlueOps only supports container images published to the supported registry. As a happy path, we have provided this [Custom Action to push Docker images to GitHub Container Registry](https://github.com/marketplace/actions/build-docker-image-and-push-to-ghcr).
 :::
 
-3. Define the different environments your application will be deployed to. For this example, we'll use three environments: prod, stage and uat. The structure will be now look like this:
+## Step 3: Define Environments
+
+In this step, we'll define the different environments your application will be deployed to. For this example, we'll use three environments: `prod`, `stage`, and `uat`. Organize your repository structure as follows:
 
 ```
 .
