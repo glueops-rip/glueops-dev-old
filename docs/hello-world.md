@@ -8,7 +8,7 @@ type: tutorial
 
 In this guide, we will walk you through the process of deploying a "Hello World" application onto the GlueOps platform. We'll start from scratch and cover each step in detail to ensure you have a smooth deployment experience.
 
-Step 1: Create a New Repository and set up your application folder
+## Step 1: Create a New Repository and set up your application folder
 
 1. Create a new repository for your application within your organization. 
 
