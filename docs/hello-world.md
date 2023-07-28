@@ -73,7 +73,7 @@ GlueOps only supports container images published to supported registry. As a hap
 8. Place your copied token in the secret input field and click add secret
 
 
-<img width="870" alt="Screenshot 2023-07-28 at 02 58 50" src="https://github.com/GlueOps/glueops-dev/assets/39309699/a356b1c6-6040-46f0-9b50-c57a2b606dc2">
+<img width="870" alt="Screenshot 2023-07-28 at 02 58 50" src="https://github.com/GlueOps/glueops-dev/assets/39309699/a356b1c6-6040-46f0-9b50-c57a2b606dc2"/>
 
 4. In your `index.html` file copy and paste the following simple **Hello World** code:
 
