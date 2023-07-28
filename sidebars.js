@@ -35,6 +35,7 @@ const sidebars = {
       },
     },
     "deployment-configuration",
+    'deploy-hello-world'
   ],
 };
 
