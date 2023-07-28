@@ -35,19 +35,16 @@ To create the GitHub App, follow these steps:
 
 <img width="1025" alt="Screenshot 2023-07-26 at 20 44 42" src="https://github.com/GlueOps/glueops-dev/assets/39309699/ba92dac6-a1cc-48ef-8312-4922d60f3697"/>
 
-3. Configure the application by providing the following details:
+3. **GitHub App name**: Enter a name for your GitHub app. A combination of your organization name and GlueOps is recommended. For example, assuming your cluster domain is `order-api.nonprod.antoniostacos.onglueops.com`. Your Github app name is `antoniostacos.onglueops.com`.
 
-   - **GitHub App name**: Your Github App name is usually the `captain_domain` provided by GlueOps. The `captain_domain` is the domain part that identifies your cluster
+:::info
+Github App name cannot be longer than 34 characters. if the character limit permits you can include the application name
+:::
 
-   - **Homepage URL**: Specify the URL for the GitHub App's homepage. We suggest using https://glueops.dev for consistency.
+   - **Homepage URL**: Specify the URL for the GitHub App's homepage. We suggest using `https://glueops.dev`for consistency.
 
-For example, let's assume we have a client called **Neptune**:
-   
-   - **GitHub App Name**: `test-nonprod.neptune.onglueops.com` which is the `captain_domain`(the domain part that identifies your cluster). 
+<img width="894" alt="Screenshot 2023-07-27 at 23 47 04" src="https://github.com/GlueOps/glueops-dev/assets/39309699/b1c97632-a7c3-4a77-b160-e00884044080"/>
 
-   - **Homepage URL**: `https://glueops.dev`
-
- <img width="941" alt="Screenshot 2023-07-26 at 20 58 47" src="https://github.com/GlueOps/glueops-dev/assets/39309699/e7ea7880-e438-449b-a30d-48c96d6ad347"/>
 
 4. Deselect Active as Webhooks are not currently required by the GitHub App.
 
@@ -67,7 +64,7 @@ For example, let's assume we have a client called **Neptune**:
 
 4. After creating the GitHub App, you will be provided with an **App ID**. 
 
-<img width="650" alt="Screenshot 2023-07-19 at 15 24 01" src="https://github.com/GlueOps/glueops-dev/assets/39309699/bdc179e0-60e2-403b-90a0-7cbd1a09ff55"/>
+<img width="600%" alt="Screenshot 2023-07-27 at 23 47 04" src="https://github.com/GlueOps/glueops-dev/assets/39309699/8e65e5b7-104f-4fac-90d5-3bc3d58ae12c"/>
 
 ## 2. Generate the private key
 
@@ -77,7 +74,7 @@ To generate the private key for your GitHub App, follow these steps:
 
 - Click on **Generate a private key**. This will download a private key file.
 
-<img width="600" alt="Screenshot 2023-07-26 at 22 15 09" src="https://github.com/GlueOps/glueops-dev/assets/39309699/d3977388-7f6d-4c0c-aa17-b186faa60af6"/>
+<img width="600%" alt="Screenshot 2023-07-26 at 22 15 09" src="https://github.com/GlueOps/glueops-dev/assets/39309699/d3977388-7f6d-4c0c-aa17-b186faa60af6"/>
 
 - Open the downloaded key file and generate a Base64-encoded version using the following command:
 
@@ -115,22 +112,18 @@ To complete the GitHub App setup, you need to install the GitHub App in your org
 
 - In the left side of the GitHub App's homepage, click on **Install App**
 
-<img width="544" alt="Screenshot 2023-07-19 at 14 35 59" src="https://github.com/GlueOps/glueops-dev/assets/39309699/c593a23a-bb5b-479e-b39f-8956e10188c7"/>
-
 - Choose an account to install your GitHub App
 
-<img width="1171" alt="Screenshot 2023-07-26 at 22 53 44" src="https://github.com/GlueOps/glueops-dev/assets/39309699/bdd06ade-358b-4f94-9b76-164a5464a9b1"/>
+<img width="1092" alt="Screenshot 2023-07-28 at 01 06 19" src="https://github.com/GlueOps/glueops-dev/assets/39309699/9bb0091b-72ca-4587-89b7-60985ab0d964"/>
 
 - Confirm the installation by following the on-screen prompts.
 
-<img width="681" alt="Screenshot 2023-07-26 at 23 03 27" src="https://github.com/GlueOps/glueops-dev/assets/39309699/3e0567f3-82c2-4922-b4ef-447f82ef759e"/>
-
 - This ID can be retrieved from the URL of the App installation homepage
 
-<img width="1128" alt="Screenshot 2023-07-26 at 23 07 02" src="https://github.com/GlueOps/glueops-dev/assets/39309699/21dc7e5e-df07-4b1e-bf91-de78ca00a5d9"/>
+<img width="1032" alt="Screenshot 2023-07-28 at 01 19 29" src="https://github.com/GlueOps/glueops-dev/assets/39309699/8d86f1b7-d91d-468f-a948-78377be2aff0"/>
 
 :::info
-From the URL would be `https://github.com/organizations/venkata-tenant-test-1/settings/installations/40078841` the GitHub App Installation ID would be `4007884`.
+From the URL would be `https://github.com/organizations/venkata-tenant-test-1/settings/installations/40119310` the GitHub App Installation ID would be `40119310`.
 :::
 
 ## Retrieving values

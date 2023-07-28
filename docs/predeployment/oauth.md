@@ -32,7 +32,7 @@ To create the OAuth App, follow these steps:
 <img width="995" alt="Screenshot 2023-07-26 at 20 28 27" src="https://github.com/GlueOps/glueops-dev/assets/39309699/b8348e31-1695-4b61-bd22-fd1513411034"/>
 
 3. **Application name**: Enter a name for your OAuth app. It should match the cluster name which GlueOps 
-will provide for you. Assuming your cluster domain is `order-api.nonprod.antoniostacos.onglueops.com`, your application name should match your cluster name for e.g `order-api`. 
+will provide for you. Assuming your cluster domain is `order-api.nonprod.antoniostacos.onglueops.com`, your application name should match your cluster name `order-api`. 
 
 :::info
 You can also include the cluster identifier, in this case `nonprod` so this will be `order-api-nonprod`
