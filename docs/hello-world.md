@@ -278,7 +278,7 @@ ingress:
 :::important
 Replace the placeholders as follows:
 - Replace `demo-app-1` with your actual repository name.
-- Replace v`enkatamutyala.com` with your actual hosting name.
+- Replace `venkatamutyala.com` with your actual hosting name.
 - Replace `test-80-np.venkata.onglueops.rocks` with the name of your GlueOps cluster provided by GlueOps.
 :::
 
