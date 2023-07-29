@@ -73,7 +73,7 @@ To enable GitHub Actions to notify our Argo CD of code changes, we need to confi
 
 ## Configure GitHub Workflows for Each Environment
 
-In the `.github/workflows` directory of your application repository, there are three workflow files for each environment: `prod-ci.yaml`, `stage-ci.yaml`, and `uat-ci.yaml`. These files define the GitHub Actions workflows specific to each environment.
+In the `.github/workflows` directory of your application repository, we will add GitHub Actions  workflow files for three environment: `prod-ci.yaml`, `stage-ci.yaml`, and `uat-ci.yaml`.
 ```
 .
 ├── .github
