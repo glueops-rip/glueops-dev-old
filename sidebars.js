@@ -36,7 +36,8 @@ const sidebars = {
       },
     },
     "glueops-deployment-configuration",
-    'deploy-hello-world-to-glueops'
+    'deploy-hello-world-to-glueops',
+    'deploy-docusarus-website-to-glueops'
   ],
 };
 
