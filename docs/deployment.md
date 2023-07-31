@@ -1,15 +1,19 @@
 ---
-id: deployment-configuration
+id: glueops-deployment-configuration
 title: Deployment Configurations
 ---
 
-# Deployment Configurations: Setting Up Your Repository
+# Setting Up Your Repository
 
-In the deployment configurations repository you can centrally manage configurations for deployments on the GlueOps Platform. This guide will walk you through the steps to set up your repository, providing a detailed explanation of its structure and how to customize it to suit your organization's needs.  You can find a template for a [deployment-configurations](https://github.com/GlueOps/deployment-configurations) to ease setup overhead.
+In the [deployment-configurations](https://github.com/GlueOps/deployment-configurations) repository you can centrally manage configurations for deployments on the GlueOps Platform. This guide will walk you through the steps to set up your repository, providing a detailed explanation of its structure and how to customize it to suit your organization's needs. 
+
+:::info
+ Here is the [deployment-configurations](https://github.com/GlueOps/deployment-configurations) template you use to ease setup overhead.
+:::
 
 ## Directory Structure
 
-The repository is organized into three core directories:
+The [deployment-configurations](https://github.com/GlueOps/deployment-configurations)repository is organized into three core directories:
 
 ```sh
 deployment-configurations
@@ -21,6 +25,7 @@ deployment-configurations
 - **apps**: Contains configurations for each application deployed on the GlueOps Platform.
 - **common**: Holds configurations shared across all deployments on the platform. It allows you to avoid repetition of configuration files for more efficient setups.
 - **env-overlays**: Contains configurations applied to groups of environments, like "prod" and "nonprod."
+
 
 ## `apps` Directory
 
@@ -105,6 +110,10 @@ The names of each directory _must_ match the names of the associated application
 3. Under the `apps` directory, add new directories for each additional application you want to deploy.
 
 4. Within each application directory, create subdirectories to match the environments you want to deploy to (e.g., `stage`, `prod`, `uat`).
+
+:::info
+There is no maximum number of directories per environment. You can choose to have environments like stage, prod, and uat, or just stage and prod based on your needs.
+:::
 
 5. Customize each environment's `values.yaml` file within the respective environment directories with environment-specific configurations.
 

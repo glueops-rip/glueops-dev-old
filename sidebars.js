@@ -19,9 +19,11 @@ const sidebars = {
   // But you can create a sidebar manually
   main: [
     "introduction",
+    "glueops-cluster-domain",
     {
       type: "category",
       label: "Pre-Deployment Setup",
+      collapsible: false,
       items: [
         "predeployment/github-oauth",
         "predeployment/github-app",
@@ -33,7 +35,9 @@ const sidebars = {
         slug: "/predeployment",
       },
     },
-    "deployment-configuration",
+    "glueops-deployment-configuration",
+    'deploy-hello-world-to-glueops',
+    'deploy-docusarus-website-to-glueops'
   ],
 };
 
