@@ -4,7 +4,6 @@ title: Deploy Docusaurus Website on GlueOps
 type: tutorial
 ---
 
-
 # Deploy Docusaurus Website on GlueOps
 Docusaurus is a static-site generator that is used to ship a beautiful documentation site in no time. In this guide, we will walk you through the process of deploying your Docusaurus website onto the GlueOps platform.
 
@@ -62,7 +61,7 @@ To enable GitHub Actions to notify our Argo CD of code changes, we need to confi
 
 ## Configure GitHub Workflows for Each Environment
 
-In the `.github/workflows` directory of your application repository, we will add GitHub Actions  workflow files for three environment: `prod-ci.yaml`, `stage-ci.yaml`, and `uat-ci.yaml`.
+In the `.github/workflows` directory of your application repository, we will add GitHub Actions workflow files for three environment: `prod-ci.yaml`, `stage-ci.yaml`, and `uat-ci.yaml`.
 
 ```
 .
@@ -109,23 +108,24 @@ jobs:
 In the `stage-ci.yaml` file add the following content:
 
 ```yaml
-# .github/workflows/uat-ci.yaml
+# .github/workflows/stage-ci.yaml
 
-name: ArgoCD - Prod Tags CI
+name: ArgoCD - Staging Tags CI
 
 on:
-  release:
+  pull_request:
     types:
-      - created
+      - closed
 jobs:
   update-tags:
     uses: GlueOps/github-workflows/.github/workflows/argocd-tags-ci.yml@main
+    if: github.event.pull_request.merged == true
     secrets:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     with:
       STACK_REPO: 'deployment-configurations'
-      ENV: 'prod'
-      CREATE_PR: true
+      ENV: 'stage'
+      CREATE_PR: false
 ```
 
 ###  `uat-ci.yaml` Environment Sample Configuration:
@@ -135,7 +135,7 @@ In the `uat-ci.yaml` file add the following content:
 ```yaml
 # .github/workflows/uat-ci.yaml
 
-name: ArgoCD - Prod Tags CI
+name: ArgoCD - QA Tags CI
 
 on:
   release:
@@ -148,7 +148,7 @@ jobs:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     with:
       STACK_REPO: 'deployment-configurations'
-      ENV: 'prod'
+      ENV: 'uat'
       CREATE_PR: true
 ```
 
@@ -224,7 +224,6 @@ Create a file named `values.yaml` in the `envs/stage` folder and add the followi
 
 image:
   tag: 'latest'
-
 ingress:
   enabled: true
   ingressClassName: public
@@ -250,7 +249,6 @@ Create a file named `values.yaml` in the `envs/uat` folder and add the following
 
 image:
   tag: 'v0.1.0'
-
 ingress:
   enabled: true
   ingressClassName: public
