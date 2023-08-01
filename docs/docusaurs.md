@@ -5,17 +5,18 @@ type: tutorial
 ---
 
 # Deploy Docusaurus Website on GlueOps
-Docusaurus is a static-site generator that is used to ship a beautiful documentation site in no time. In this guide, we will walk you through the process of deploying your Docusaurus website onto the GlueOps platform.
+Docusaurus is a static site generator that allows you to create and deploy beautiful documentation websites quickly. In this tutorial, we will guide you through the process of deploying your Docusaurus website onto the GlueOps platform. 
 
-## Set up your docusuaurs templagte
-Follow the steps here to set up your [docusaurus site](https://docusaurus.io/)
+## Prerequisites
+
+Before you begin, you should have already set up your [Docusaurus website](https://docusaurus.io/) with all the necessary content and configurations.
 
 ## Set Up GitHub Actions for Docker Image Publishing
-Now, let's configure GitHub Actions to automatically publish a Docker image of your Docusaurus website. This will allow the GlueOps platform to use the latest version of your website. As a happy path, we have provided this [Custom Action to push Docker images to GitHub Container Registry](https://github.com/marketplace/actions/build-docker-image-and-push-to-ghcr). Here's how you can set it up:
+GlueOps relies on Docker images to deploy applications. We'll set up GitHub Actions to automatically build and publish a Docker image of your Docusaurus website to GitHub Container Registry (GHCR). Here's how you can do it As a happy path, we have provided this [Custom Action to push Docker images to GitHub Container Registry](https://github.com/marketplace/actions/build-docker-image-and-push-to-ghcr). Here's how you can set it up:
 
-- Create a .github/workflows folder.
-- Create a new file named ghcr.yaml in the workflows folder.
-- Copy and paste the following code into ghcr.yaml:
+- Create a `.github/workflows` folder.
+- Create a new file named `ghcr.yaml` in the workflows folder.
+- Copy and paste the following code into `ghcr.yaml`:
 
 
 ```yaml
@@ -281,8 +282,6 @@ Create a pull request (PR) to trigger the GitHub Action you set up for publishin
 
 To view the app click on the preview URL. You can check the status of the deployment on Argos CD, which will show metrics, logs, and more. The QR code will also lead you to the preview URL.
 
-<img width="420" alt="Screenshot 2023-07-28 at 12 53 14" src="https://github.com/GlueOps/glueops-dev/assets/39309699/9661e169-6eee-4bec-a5ee-145751e40b6f"/>
-
 ## Deploying to Environments
 
 ### Check application deployed to your Staging Enviroment
@@ -291,15 +290,13 @@ The staging enviroment is automatically deployed, to check your application:
 
 1. Navigate to the `envs/stage` directory within the [deployment-configurations](https://github.com/GlueOps/deployment-configurations) repository.
 
-2. In the `values.yaml` file located in the `stage` folder, you will find the configuration for the staging environment. Check the `hostname` entry to check your application deployed to the staging environment.
+2. In the `values.yaml` file located in the `stage` folder, check the `hostname` entry to view your application deployed to the staging environment.
 
 ### Deploying to `prod` and `uat` Environments
 
 1. To deploy your application to the prod and UAT environments, you need to create a release in your application's repository (e.g., v0.1.0, v1.0.0, etc.). This release will mark the specific version of your application that you want to deploy to these environments.
 
 2. Upon creating the release, GitHub will automatically generate pull requests into the deployment-configurations repository. These pull requests will contain the necessary changes for the prod and UAT environments, located in the `envs/prod` and `envs/uat` directories, respectively.
-
-<img width="362" alt="Screenshot 2023-07-28 at 13 19 12" src="https://github.com/GlueOps/glueops-dev/assets/39309699/5bc936a8-adcd-40f4-bdc8-ff8b3290ce0d"/>
 
 3. Review and merge the pull requests in the deployment-configurations repository. This will trigger the deployment process to both the `prod` and `uat` environments.
 

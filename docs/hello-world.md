@@ -88,6 +88,7 @@ In the `.github/workflows` directory of your application repository, we will add
 
 Each workflow file uses the `GlueOps/github-workflows/.github/workflows/argocd-tags-ci.yml` action to notify Argo CD about the new image tags and initiate the deployment process.
 
+
 ###  `prod-ci.yaml` Environment Sample Configuration:
 
 In the `prod-ci.yaml` file add the following content:
@@ -117,23 +118,24 @@ jobs:
 In the `stage-ci.yaml` file add the following content:
 
 ```yaml
-# .github/workflows/uat-ci.yaml
+# .github/workflows/stage-ci.yaml
 
-name: ArgoCD - Prod Tags CI
+name: ArgoCD - Staging Tags CI
 
 on:
-  release:
+  pull_request:
     types:
-      - created
+      - closed
 jobs:
   update-tags:
     uses: GlueOps/github-workflows/.github/workflows/argocd-tags-ci.yml@main
+    if: github.event.pull_request.merged == true
     secrets:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     with:
       STACK_REPO: 'deployment-configurations'
-      ENV: 'prod'
-      CREATE_PR: true
+      ENV: 'stage'
+      CREATE_PR: false
 ```
 
 ###  `uat-ci.yaml` Environment Sample Configuration:
@@ -143,7 +145,7 @@ In the `uat-ci.yaml` file add the following content:
 ```yaml
 # .github/workflows/uat-ci.yaml
 
-name: ArgoCD - Prod Tags CI
+name: ArgoCD - QA Tags CI
 
 on:
   release:
@@ -156,7 +158,7 @@ jobs:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     with:
       STACK_REPO: 'deployment-configurations'
-      ENV: 'prod'
+      ENV: 'uat'
       CREATE_PR: true
 ```
 
