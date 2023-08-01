@@ -1,15 +1,16 @@
-name: ArgoCD - Prod Tags CI
+name: ArgoCD - Staging Tags CI
 
 on:
-  release:
+  pull_request:
     types:
-      - created
+      - closed
 jobs:
   update-tags:
     uses: GlueOps/github-workflows/.github/workflows/argocd-tags-ci.yml@main
+    if: github.event.pull_request.merged == true
     secrets:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     with:
       STACK_REPO: 'deployment-configurations'
-      ENV: 'prod'
-      CREATE_PR: true
+      ENV: 'stage'
+      CREATE_PR: false
