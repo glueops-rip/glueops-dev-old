@@ -1,4 +1,4 @@
-name: ArgoCD - Prod Tags CI
+name: ArgoCD - QA Tags CI
 
 on:
   release:
@@ -11,5 +11,5 @@ jobs:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     with:
       STACK_REPO: 'deployment-configurations'
-      ENV: 'prod'
+      ENV: 'uat'
       CREATE_PR: true
