@@ -302,7 +302,7 @@ The staging enviroment is automatically deployed, to check your application:
 
 3. Review and merge the pull requests in the deployment-configurations repository. This will trigger the deployment process to both the `prod` and `uat` environments.
 
-5. Once the deployment process is completed, your application will be accessible in both the `prod` and `uat` environments hostnames 
+5. Once the deployment process is completed, your application will be accessible in both the `prod` and `uat` environments hostnames.
 
 ## Conclusion
 
