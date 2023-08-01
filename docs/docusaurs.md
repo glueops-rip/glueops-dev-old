@@ -36,26 +36,28 @@ jobs:
 GlueOps only supports container images published to the supported registry. 
 :::
 
+
 ## Configure GitHub Token as a Repository Secret
 
 To enable GitHub Actions to notify our Argo CD of code changes, we need to configure a GitHub token as a repository secret. Here's how you can set it up:
 
-1. Go to your repository and navigate to **Settings > Security > Secrets and Variables > Actions**.
-<img width="422" alt="Screenshot 2023-07-28 at 02 47 16" src="https://github.com/GlueOps/glueops-dev/assets/39309699/f3468172-98cb-4b4f-a2fe-42e1006d772c"/>
 
-2. Click on **New repository secret** to create a new token.
-
-<img width="830" alt="Screenshot 2023-07-28 at 02 48 23" src="https://github.com/GlueOps/glueops-dev/assets/39309699/a4aca65d-483a-4b43-b55e-1a4080eb62e1"/>
-
-3. To get your token secret, go to [https://github.com/settings/tokens](https://github.com/settings/tokens) and click on "Generate new token."
+- To get your token secret, go to [https://github.com/settings/tokens](https://github.com/settings/tokens) and click on **Generate new token.**
 
 <img width="927" alt="Screenshot 2023-07-28 at 02 51 03" src="https://github.com/GlueOps/glueops-dev/assets/39309699/158bbb62-6710-4933-b076-1efb8d6bdc02"/>
 
-4. Use the onscreen information to generate your token. The only scope required is the "repo" scope. Click on "Generate token" and copy your token.
+- Use the onscreen information to generate your token. The only scope required is the **repo** scope. 
+
+- Click on **Generate token** and copy your token.
 
 <img width="869" alt="Screenshot 2023-07-28 at 02 55 12" src="https://github.com/GlueOps/glueops-dev/assets/39309699/a7bca229-ed48-4679-ba45-6a863977820c"/>
 
-5. Add your secret name and place your copied token in the secret input field  and click **Add secret**. In our case we called our secret name `GH_TOKEN`
+- Go to your repository and navigate to **Settings > Security > Secrets and Variables > Actions**.
+<img width="422" alt="Screenshot 2023-07-28 at 02 47 16" src="https://github.com/GlueOps/glueops-dev/assets/39309699/f3468172-98cb-4b4f-a2fe-42e1006d772c"/>
+
+- Click on **New repository secret** to create a new token.
+
+- Add your secret name and place your copied token in the secret input field  and click **Add secret**. 
 
 <img width="870" alt="Screenshot 2023-07-28 at 02 58 50" src="https://github.com/GlueOps/glueops-dev/assets/39309699/a356b1c6-6040-46f0-9b50-c57a2b606dc2"/>
 
