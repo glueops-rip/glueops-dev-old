@@ -11,6 +11,6 @@ jobs:
     secrets:
       GH_TOKEN: ${{ secrets.DOC_TOKEN }}
     with:
-      STACK_REPO: 'deployment-configurations'
+      STACK_REPO: 'https://github.com/venkata-tenant-test-1/deployment-configurations'
       ENV: 'stage'
       CREATE_PR: false
