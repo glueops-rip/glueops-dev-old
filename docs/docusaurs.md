@@ -156,7 +156,7 @@ jobs:
 ```
 
 :::info
-Replace `secrets.GH_TOKEN` with the correct secret name if you used a different name for the GitHub token secret.
+Replace `GH_TOKEN` with the correct secret name if you used a different name for the GitHub token secret.
 :::
 
 
