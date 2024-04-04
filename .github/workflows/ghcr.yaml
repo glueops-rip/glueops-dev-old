@@ -7,4 +7,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build, Tag and Push Docker Image to GHCR
-        uses: GlueOps/github-actions-build-push-containers@v0.1.2
+        uses: GlueOps/github-actions-build-push-containers@05be4dd5e4bfafc46796418a67314cc82afba80b # v0.1.2
